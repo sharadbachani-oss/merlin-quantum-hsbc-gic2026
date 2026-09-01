@@ -1,0 +1,32 @@
+{
+ "card": "HSBC v2 G1b \u2014 identity-merged temporal baseline",
+ "n_train": 472432,
+ "n_test": 118108,
+ "metrics": {
+  "auc_roc": 0.9118050342998572,
+  "auprc": 0.5531995925671044,
+  "f1_best": 0.5462471052990056,
+  "precision": 0.6118400976502899,
+  "recall": 0.49335629921259844,
+  "threshold": 0.7243585586547852,
+  "confusion": [
+   [
+    112771,
+    1273
+   ],
+   [
+    2059,
+    2005
+   ]
+  ]
+ },
+ "gray_zone": {
+  "score_lo": 0.6298220157623291,
+  "score_hi": 0.8186372518539429,
+  "n": 2362,
+  "fraud_rate": 0.26037256562235395,
+  "band_auprc": 0.3393932691669119,
+  "band_auc": 0.6137727393301409
+ },
+ "best_iteration": 325
+}
