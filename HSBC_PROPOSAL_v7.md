@@ -35,6 +35,8 @@ We state the boundary honestly: our nineteen earlier formulations — kernels, f
 | Software | Braket SDK, Qiskit for the template, LightGBM, SHAP; all analysis regenerates from archived counts |
 | Compute | single workstation for graph extraction and training |
 
+**Scope, stated with its treatment.** (i) No detection gain is claimed today — nineteen formulations were null under four-arm controls and are reported as such. (ii) The response oracle is untested on fraud labels — the PoC's single pre-registered bar decides it. (iii) Neighborhood responses are computed offline — production latency is met by entity-level caching, not in-path calls. (iv) Our baseline (AUC 0.912) sits below the IEEE-CIS winner (0.946) — the gray-zone lift is measured against our own tuned scorer and the cheap relational features. (v) IEEE-CIS entity keys are anonymised — the graph is built from card1/addr1/e-mail only, temporal split, no future edges.
+
 Assumptions: shared-entity edges carry relational signal; a 20–30-node neighborhood is sufficient. Constraints: per-transaction quantum execution is offline (batch scoring evaluation, as the statement scopes); production latency would be met by caching neighborhood responses at the entity level. Cost of repeated feature acquisition is charged in the ledger.
 
 ## 4. Expected impact
