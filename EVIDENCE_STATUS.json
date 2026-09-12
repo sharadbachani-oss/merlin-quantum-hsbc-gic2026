@@ -1,0 +1,9 @@
+{
+  "track": "HSBC",
+  "status": "MODEL_VALIDATED_HARDWARE_QUALIFICATION_REQUIRED",
+  "new_hardware_advantage_demonstrated": false,
+  "receipt_hashes": {
+    "results/hsbc_advantage_scaling.json": "634da329735f06c7b4107aa12e7e239ad03c07ad726e69388e27e0f226eebedc"
+  },
+  "missing_referenced_receipts": []
+}

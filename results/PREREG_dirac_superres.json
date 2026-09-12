@@ -1,0 +1,20 @@
+{
+ "created": "2026-09-09 14:14:37",
+ "route": "hsbc-response-deconvolution",
+ "device": "dirac-3",
+ "k": 1,
+ "n_vars": 441,
+ "sum_constraint": 1.0,
+ "num_samples": 20,
+ "relaxation_schedule": 4,
+ "gates": {
+  "G1": "recovered leading line within 0.10 of the exact value",
+  "G2": "objective within 10 percent of the convex reference solve",
+  "G3": "girth-4 and star instances resolved apart at P=16 circuits"
+ },
+ "reference": {
+  "convex_solver": "scipy nnls with sum penalty"
+ },
+ "inst_sha": "8e5e1cbec600fecc34e0bd5fec39b23a196fac9b830ccdf55e14af382be28f0f",
+ "sha256": "e2d373d28a2cfdb859e163c28cc71552d2f7326471c3ec7b5f29547a5899db72"
+}

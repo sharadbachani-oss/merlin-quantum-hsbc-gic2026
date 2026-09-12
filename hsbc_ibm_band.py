@@ -4,10 +4,10 @@ hsbc_ibm_band.py — IBM leg: gray-zone transactions through the project's
 own beyond-classical feature map. FREE (open-plan trio), so this is the
 band-lift experiment that runs BEFORE any Aquila spend.
 
-Encoding: each transaction's top-16 features -> per-rung preparation
-angle (8 rungs x prep) + per-rung local Z-tilt (8 rungs x drive) on the
-64-rung 2D lattice; evolution to k in the hard window; features = the
-collective spectrum X(q) at 4 wavevectors x 2 depths + 8 coarse rung-
+Encoding: each transaction's top-16 features -> per-pair preparation
+angle (8 pairs x prep) + per-pair local Z-tilt (8 pairs x drive) on the
+64-pair 2D lattice; evolution to k in the hard window; features = the
+collective spectrum X(q) at 4 wavevectors x 2 depths + 8 coarse pair-
 sector parities = 16 quantum features per transaction.
 
 Instrument discipline (internal):
@@ -19,7 +19,7 @@ Instrument discipline (internal):
   - Replica pair on one fixed transaction -> measured sigma.
 
 Stages:
-  model  — 12-rung statevector mechanics gate (variability, null
+  model  — 12-pair statevector mechanics gate (variability, null
            separation, replica agreement) — mechanics only
   fly    — stratified band sample (default 96 txns + 8 nulls + 2
            replicas) x k in {8, 10}, 8,192 shots, one job
@@ -38,7 +38,7 @@ DT, GB = 0.30, 1.0
 KS = (8, 10)
 N_TXN, SHOTS = 96, 8192
 STATE = os.path.join(WORK, "ibm_band_state.json")
-sys.path.insert(0, r"C:\fable\python")
+sys.path.insert(0, r"C:\first-principles\python")
 
 
 def load_band(n_feat=16):
@@ -77,25 +77,25 @@ def load_band(n_feat=16):
     return band, y[cut:][band], p[band], F, [cols[i] for i in fi]
 
 
-def build_template(k, n_rungs, rungs, bonds, nq):
+def build_template(k, n_pairs, pairs, bonds, nq):
     """parameterized: 8 prep-sector angles + 8 tilt-sector angles."""
     from qiskit import QuantumCircuit
     from qiskit.circuit import Parameter
     pa = [Parameter(f"a{i}") for i in range(8)]
     pt = [Parameter(f"t{i}") for i in range(8)]
     qc = QuantumCircuit(nq, nq)
-    sec = max(1, n_rungs // 8)
-    for r, (a, b) in enumerate(rungs):
+    sec = max(1, n_pairs // 8)
+    for r, (a, b) in enumerate(pairs):
         qc.ry(pa[min(r // sec, 7)], a)          # data-dependent prep
     for _ in range(k):
-        for (a, b) in rungs:
+        for (a, b) in pairs:
             qc.rzz(-MU * DT, a, b)
-        for (a, b) in rungs:
+        for (a, b) in pairs:
             qc.rx(-2 * DT, a); qc.rx(-2 * DT, b)
         for layer in bonds:
             for (a, b) in layer:
                 qc.rxx(2 * GB * DT, a, b)
-        for r, (a, b) in enumerate(rungs):      # data-dependent tilt
+        for r, (a, b) in enumerate(pairs):      # data-dependent tilt
             qc.rz(pt[min(r // sec, 7)] * DT, a)
     qc.measure(range(nq), range(nq))
     return qc, pa, pt
@@ -108,29 +108,29 @@ def txn_angles(fv):
     return prep, tilt
 
 
-def features_from_counts(counts, rungs):
-    import fable_a1_flight as A
-    m1 = np.zeros(len(rungs)); tot = 0
+def features_from_counts(counts, pairs):
+    import engine_a1_flight as A
+    m1 = np.zeros(len(pairs)); tot = 0
     for bits, c in counts.items():
         sb = bits.replace(" ", "")[::-1]
         par = np.array([1 - 2 * (int(sb[a]) ^ int(sb[b]))
-                        for a, b in rungs], float)
+                        for a, b in pairs], float)
         m1 += c * par; tot += c
     m1 /= tot
-    _, _, Xq = A.grade_counts(counts, rungs)
-    sec = max(1, len(rungs) // 8)
+    _, _, Xq = A.grade_counts(counts, pairs)
+    sec = max(1, len(pairs) // 8)
     coarse = [float(m1[i * sec:(i + 1) * sec].mean()) for i in range(8)]
     return [Xq[q] for q in (0.5, 1.0, 2.0, 4.0)] + coarse
 
 
 def stage_model():
-    """12-rung statevector mechanics gate."""
+    """12-pair statevector mechanics gate."""
     from qiskit.quantum_info import Statevector
-    rungs = [(2 * i, 2 * i + 1) for i in range(12)]
+    pairs = [(2 * i, 2 * i + 1) for i in range(12)]
     bonds = [[(2 * i, 2 * i + 2) for i in range(0, 11, 2)],
              [(2 * i + 1, 2 * i + 3) for i in range(1, 10, 2)]]
     nq = 24
-    qc, pa, pt = build_template(4, 12, rungs, bonds, nq)
+    qc, pa, pt = build_template(4, 12, pairs, bonds, nq)
     rng = np.random.default_rng(7)
     feats = []
     for trial in range(6):
@@ -146,7 +146,7 @@ def stage_model():
         for d in draws:
             b = format(d, f"0{nq}b")
             cts[b] = cts.get(b, 0) + 1
-        feats.append(features_from_counts(cts, rungs))
+        feats.append(features_from_counts(cts, pairs))
     M = np.array(feats)
     var = float(M.std(axis=0).mean())
     print(f"mechanics: feature variability across 6 random txns = {var:.4f} "
@@ -157,7 +157,7 @@ def stage_model():
 def stage_fly():
     from qiskit import transpile
     from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2
-    import fable_a1_flight as A
+    import engine_a1_flight as A
     svc = QiskitRuntimeService(instance=OPEN_CRN)
     pend = {}
     for b in OPEN_BACKENDS:
@@ -168,9 +168,9 @@ def stage_fly():
     name = min(pend, key=pend.get)
     backend = svc.backend(name)
     print(f"  queue {pend} -> {name}", flush=True)
-    rungs, bonds, nq = A.colour_edges(backend)
-    n_r = len(rungs)
-    print(f"  {n_r} rungs on {name}", flush=True)
+    pairs, bonds, nq = A.colour_edges(backend)
+    n_r = len(pairs)
+    print(f"  {n_r} pairs on {name}", flush=True)
     band, yb, pb, F, fnames = load_band()
     rng = np.random.default_rng(21)
     yi = np.where(yb == 1)[0]; ni = np.where(yb == 0)[0]
@@ -182,7 +182,7 @@ def stage_fly():
     circs, names = [], []
     tts = {}
     for k in KS:
-        t, pa, pt = build_template(k, n_r, rungs, bonds, nq)
+        t, pa, pt = build_template(k, n_r, pairs, bonds, nq)
         tts[k] = (transpile(t, backend, optimization_level=1,
                             seed_transpiler=21), pa, pt)
     n2q = tts[KS[0]][0].count_ops()
@@ -218,7 +218,7 @@ def stage_fly():
     s.options.dynamical_decoupling.sequence_type = "XpXm"
     job = s.run(circs, shots=SHOTS)
     json.dump(dict(tag=tag, backend=name, job=job.job_id(), names=names,
-                   rungs=[list(r) for r in rungs],
+                   pairs=[list(r) for r in pairs],
                    pick=[int(v) for v in pick],
                    y=[int(yb[i]) for i in pick],
                    p_classical=[float(pb[i]) for i in pick],
@@ -234,10 +234,10 @@ def stage_grade():
     st = json.load(open(STATE))
     svc = QiskitRuntimeService(instance=OPEN_CRN)
     res = svc.job(st["job"]).result()
-    rungs = [tuple(r) for r in st["rungs"]]
+    pairs = [tuple(r) for r in st["pairs"]]
     rows, nulls = {}, {}
     for i, nm in enumerate(st["names"]):
-        f = features_from_counts(res[i].data.c.get_counts(), rungs)
+        f = features_from_counts(res[i].data.c.get_counts(), pairs)
         (nulls if nm.startswith("null") else rows)[nm] = f
     nk = {k: np.mean([v for n_, v in nulls.items() if n_.endswith(f"_k{k}")],
                      axis=0) for k in KS}

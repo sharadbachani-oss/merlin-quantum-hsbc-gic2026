@@ -1,0 +1,99 @@
+{
+ "kappa": 3.927050983124843,
+ "instances": [
+  {
+   "family": "aml_ring6",
+   "k": 1,
+   "n_qubits": 6,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 0.001955452344225508,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -0.5994457654883799
+  },
+  {
+   "family": "aml_ring4",
+   "k": 1,
+   "n_qubits": 6,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 0.003672606725953433,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -0.9280760789762424
+  },
+  {
+   "family": "smurf_star",
+   "k": 1,
+   "n_qubits": 6,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 0.004824040003605359,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -0.958459335950005
+  },
+  {
+   "family": "null_native",
+   "k": 1,
+   "n_qubits": 6,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 0.020481092264156113,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -2.5176867945104284
+  },
+  {
+   "family": "aml_ring6",
+   "k": 2,
+   "n_qubits": 12,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 1.787268580132989e-06,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -1.107413675269979
+  },
+  {
+   "family": "aml_ring4",
+   "k": 2,
+   "n_qubits": 12,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 6.2808537902752795e-06,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -1.7511412896258576
+  },
+  {
+   "family": "smurf_star",
+   "k": 2,
+   "n_qubits": 12,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 1.1665759548555867e-05,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -1.8672540908491189
+  },
+  {
+   "family": "null_native",
+   "k": 2,
+   "n_qubits": 12,
+   "max_offdiagonal": 0.0,
+   "stoquastic": true,
+   "ground_vector_strictly_positive": true,
+   "ground_vector_min_entry": 0.00024394813597825176,
+   "transfer_offdiagonals_nonnegative": true,
+   "E0": -4.229327058933613
+  }
+ ],
+ "all_stoquastic": true,
+ "all_ground_positive": true,
+ "ledger": {
+  "imaginary_time": "sign-problem-free; no advantage available to any ground-state machine",
+  "real_time": "oscillatory; tensor-network route measured shut, continuation ill-posed"
+ }
+}

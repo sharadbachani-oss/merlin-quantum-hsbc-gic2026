@@ -1,0 +1,72 @@
+{
+ "k": 1,
+ "dt": 0.1,
+ "shots": 8192,
+ "trials": 12,
+ "tol": 0.015,
+ "true_w1": {
+  "aml_ring6": 0.5994457654883801,
+  "aml_ring4": 0.9280760789762397,
+  "smurf_star": 0.9584593359500054
+ },
+ "hard_pair_separation": 0.03038325697376576,
+ "rayleigh_T": 206.7976225394389,
+ "grid_points": 441,
+ "grid_spacing": 0.02,
+ "sweep": [
+  {
+   "circuits": 16,
+   "record_T": 1.6,
+   "fourier_accuracy": 0.0,
+   "deconv_accuracy": 0.5833333333333334
+  },
+  {
+   "circuits": 24,
+   "record_T": 2.4000000000000004,
+   "fourier_accuracy": 0.0,
+   "deconv_accuracy": 0.9444444444444444
+  },
+  {
+   "circuits": 32,
+   "record_T": 3.2,
+   "fourier_accuracy": 0.3333333333333333,
+   "deconv_accuracy": 0.9444444444444444
+  },
+  {
+   "circuits": 48,
+   "record_T": 4.800000000000001,
+   "fourier_accuracy": 0.0,
+   "deconv_accuracy": 0.9722222222222222
+  },
+  {
+   "circuits": 64,
+   "record_T": 6.4,
+   "fourier_accuracy": 0.6666666666666666,
+   "deconv_accuracy": 1.0
+  },
+  {
+   "circuits": 128,
+   "record_T": 12.8,
+   "fourier_accuracy": 1.0,
+   "deconv_accuracy": 1.0
+  },
+  {
+   "circuits": 256,
+   "record_T": 25.6,
+   "fourier_accuracy": 1.0,
+   "deconv_accuracy": 1.0
+  },
+  {
+   "circuits": 512,
+   "record_T": 51.2,
+   "fourier_accuracy": 1.0,
+   "deconv_accuracy": 1.0
+  }
+ ],
+ "instance": {
+  "path": "C:\\quantum ai 2026\\HSBC_SUBMISSION_PACKAGE\\results\\dirac_superres_instance.json",
+  "n_vars": 441,
+  "n_terms": 97902,
+  "prereg_sha": "e2d373d28a2cfdb859e163c28cc71552d2f7326471c3ec7b5f29547a5899db72"
+ }
+}

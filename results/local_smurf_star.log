@@ -1,0 +1,3 @@
+  smurf_star k=1 n= 6 | GLOBAL w1=0.9513 weight=0.05060 | LOCAL w1=4.4148 weight=0.01696 amp=0.4697  (0.2s)
+  smurf_star k=2 n=12 | GLOBAL w1=1.8781 weight=0.00606 | LOCAL w1=4.2929 weight=0.03285 amp=0.4054  (1.9s)
+  smurf_star k=3 n=18 | GLOBAL w1=2.8050 weight=0.00145 | LOCAL w1=4.2929 weight=0.03362 amp=0.4062  (578.1s)

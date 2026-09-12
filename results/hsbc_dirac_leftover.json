@@ -1,0 +1,280 @@
+{
+  "card": "DIRAC HSBC LEFTOVER / WRAP",
+  "date": "2026-09-11",
+  "track": "hsbc",
+  "operator": "V = mu* D; kinetic A6 = Dirac bath",
+  "industrial_object": "wrap-before-cone ring certificate: ring L(tau) closes, star explodes",
+  "graphs": {
+    "hsbc_ring6": {
+      "graph": "hsbc_ring6",
+      "extra_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "series": {
+        "1": {
+          "T": 1.0,
+          "mean_E": -4.4041014276880395,
+          "leftover_even_zz": 0.025170797502521602,
+          "leftover_omega": 0.1573232879373785,
+          "leftover_even_parity": 0.024894385125226903,
+          "P_even_zz": 0.9748292024974784,
+          "P_omega": 0.8426767120626215,
+          "P_even_parity": 0.9751056148747731
+        },
+        "2": {
+          "T": 0.5,
+          "mean_E": -4.959844811558383,
+          "leftover_even_zz": 0.00013380778885063727,
+          "leftover_omega": 0.018512640939941094,
+          "leftover_even_parity": 0.00013379873231622597,
+          "P_even_zz": 0.9998661922111494,
+          "P_omega": 0.9814873590600589,
+          "P_even_parity": 0.9998662012676838
+        },
+        "3": {
+          "T": 0.3333333333333333,
+          "mean_E": -4.994995483911238,
+          "leftover_even_zz": 8.374059433657877e-07,
+          "leftover_omega": 0.0024801444739970258,
+          "leftover_even_parity": 8.374055870952191e-07,
+          "P_even_zz": 0.9999991625940566,
+          "P_omega": 0.997519855526003,
+          "P_even_parity": 0.9999991625944129
+        },
+        "4": {
+          "T": 0.25,
+          "mean_E": -4.9993283303156915,
+          "leftover_even_zz": 5.721274565217982e-09,
+          "leftover_omega": 0.00033547233847019964,
+          "leftover_even_parity": 5.721274565217982e-09,
+          "P_even_zz": 0.9999999942787254,
+          "P_omega": 0.9996645276615298,
+          "P_even_parity": 0.9999999942787254
+        }
+      },
+      "leftover_even_zz": [
+        0.025170797502521602,
+        0.00013380778885063727,
+        8.374059433657877e-07,
+        5.721274565217982e-09
+      ],
+      "leftover_omega": [
+        0.1573232879373785,
+        0.018512640939941094,
+        0.0024801444739970258,
+        0.00033547233847019964
+      ],
+      "wrap_closes": true,
+      "dL_even_zz": 0.025170791781247037
+    },
+    "hsbc_star": {
+      "graph": "hsbc_star",
+      "extra_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "series": {
+        "1": {
+          "T": 1.0,
+          "mean_E": -1.9948461716014476,
+          "leftover_even_zz": 0.05113149563726849,
+          "leftover_omega": 0.18789797244473772,
+          "leftover_even_parity": 0.0502563509329681,
+          "P_even_zz": 0.9488685043627315,
+          "P_omega": 0.8121020275552623,
+          "P_even_parity": 0.9497436490670319
+        },
+        "2": {
+          "T": 0.5,
+          "mean_E": -2.81706727992267,
+          "leftover_even_zz": 0.0008813642643689112,
+          "leftover_omega": 0.022564981112095706,
+          "leftover_even_parity": 0.0008811318283165059,
+          "P_even_zz": 0.9991186357356311,
+          "P_omega": 0.9774350188879043,
+          "P_even_parity": 0.9991188681716835
+        },
+        "3": {
+          "T": 0.3333333333333333,
+          "mean_E": -2.9461830753196647,
+          "leftover_even_zz": 1.605731175013947e-05,
+          "leftover_omega": 0.0027142711915146833,
+          "leftover_even_parity": 1.6057241602362993e-05,
+          "P_even_zz": 0.9999839426882499,
+          "P_omega": 0.9972857288084853,
+          "P_even_parity": 0.9999839427583976
+        },
+        "4": {
+          "T": 0.25,
+          "mean_E": -2.981269950962264,
+          "leftover_even_zz": 3.0685157625942594e-07,
+          "leftover_omega": 0.0003475612336112377,
+          "leftover_even_parity": 3.068515519455417e-07,
+          "P_even_zz": 0.9999996931484237,
+          "P_omega": 0.9996524387663888,
+          "P_even_parity": 0.999999693148448
+        }
+      },
+      "leftover_even_zz": [
+        0.05113149563726849,
+        0.0008813642643689112,
+        1.605731175013947e-05,
+        3.0685157625942594e-07
+      ],
+      "leftover_omega": [
+        0.18789797244473772,
+        0.022564981112095706,
+        0.0027142711915146833,
+        0.0003475612336112377
+      ],
+      "wrap_closes": true,
+      "dL_even_zz": 0.05113118878569223
+    },
+    "hsbc_null": {
+      "graph": "hsbc_null",
+      "extra_edges": [],
+      "series": {
+        "1": {
+          "T": 1.0,
+          "mean_E": 0.22762401742348018,
+          "leftover_even_zz": 0.0568503979056717,
+          "leftover_omega": 0.5119329511129956,
+          "leftover_even_parity": 0.05575212897887638,
+          "P_even_zz": 0.9431496020943283,
+          "P_omega": 0.48806704888700436,
+          "P_even_parity": 0.9442478710211236
+        },
+        "2": {
+          "T": 0.5,
+          "mean_E": 0.0045711566924435225,
+          "leftover_even_zz": 0.001163566071784805,
+          "leftover_omega": 0.5002424472013558,
+          "leftover_even_parity": 0.001163114601322457,
+          "P_even_zz": 0.9988364339282152,
+          "P_omega": 0.4997575527986442,
+          "P_even_parity": 0.9988368853986775
+        },
+        "3": {
+          "T": 0.3333333333333333,
+          "mean_E": 9.009376922040695e-05,
+          "leftover_even_zz": 2.2941663002762347e-05,
+          "leftover_omega": 0.5000047795277456,
+          "leftover_even_parity": 2.2941487561434215e-05,
+          "P_even_zz": 0.9999770583369972,
+          "P_omega": 0.4999952204722545,
+          "P_even_parity": 0.9999770585124386
+        },
+        "4": {
+          "T": 0.25,
+          "mean_E": 1.77501260035713e-06,
+          "leftover_even_zz": 4.5199625375857977e-07,
+          "leftover_omega": 0.5000000941658919,
+          "leftover_even_parity": 4.5199618570190836e-07,
+          "P_even_zz": 0.9999995480037462,
+          "P_omega": 0.49999990583410814,
+          "P_even_parity": 0.9999995480038143
+        }
+      },
+      "leftover_even_zz": [
+        0.0568503979056717,
+        0.001163566071784805,
+        2.2941663002762347e-05,
+        4.5199625375857977e-07
+      ],
+      "leftover_omega": [
+        0.5119329511129956,
+        0.5002424472013558,
+        0.5000047795277456,
+        0.5000000941658919
+      ],
+      "wrap_closes": true,
+      "dL_even_zz": 0.05684994590941794
+    }
+  },
+  "local_gates": {
+    "named_H_leftover_drops": true,
+    "ring_wraps": true,
+    "star_explodes": true,
+    "null_local": true,
+    "eon_membrane_ranks": true,
+    "eon_certified_beats_deg2": true,
+    "eon_deg2_not_certified": true,
+    "vw_jam_closes": true,
+    "vw_jam_held_at_wrap": true,
+    "cleveland_geom_moves": true,
+    "airbus_parity_filter": true,
+    "airbus_orbit_held": true,
+    "continuation_misses_schedule": true,
+    "wrap_before_cone": true,
+    "not_a_kernel": true,
+    "not_an_ibm_circuit": true,
+    "kinetic_A6_is_the_bath": true
+  },
+  "status": "SHARED_DIRAC_CARD_FLOWN_NO_CROSSING",
+  "job_ids": [
+    "6aa3261408442f441bbb6f2d",
+    "6aa3262008442f441bbb6f2e",
+    "6aa3263508442f441bbb6f2f",
+    "6aa3264a08442f441bbb6f30"
+  ],
+  "job_id": null,
+  "new_hardware_advantage_demonstrated": false,
+  "ibm_abandoned": [
+    "dahgvg39k43c73aepmjg",
+    "dahgrjhhvn6c73cs0kng"
+  ],
+  "ibm_fail_locked": "dagfiegmhr3c73e53gvg",
+  "honesty": {
+    "invented_ids": false,
+    "not_a_port_of_ibm_circuits": true,
+    "ibm_kingston_not_resubmitted": true,
+    "ibm_fez_wrap_not_resubmitted": true,
+    "hsbc_fail_not_regraded": true,
+    "aqt_not_relabeled_dirac": true,
+    "jennings_ns_not_claimed": true,
+    "he_wall_stays_fail": true,
+    "dirac_fly": "blocked_or_not_yet; local leftover is the executed object"
+  },
+  "full_W_card": {
+    "receipt": "../../results/dirac_full_W_flight.json",
+    "status": "FLOWN",
+    "new_hardware_advantage_demonstrated": false,
+    "pf_vacuum_seen": false,
+    "job_ids": [
+      "6aa3a53b08442f441bbb6f34",
+      "6aa3a58308442f441bbb6f35",
+      "6aa3a5d108442f441bbb6f36",
+      "6aa3a66b08442f441bbb6f37"
+    ],
+    "note": "64-cell continuous W; not this leftover 6-bit card. Rayleigh stayed near -0.9, V-octet collapse."
+  }
+}

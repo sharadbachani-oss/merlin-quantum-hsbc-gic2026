@@ -27,7 +27,7 @@ from itertools import combinations
 import numpy as np
 
 WORK = r"C:\quantum ai 2026\hsbc"
-sys.path.insert(0, r"C:\fable\python")
+sys.path.insert(0, r"C:\first-principles\python")
 sys.path.insert(0, r"C:\gic2026 final\qci\run")
 NB = 24
 N_JOBS, SAMPLES_PER = 40, 20
@@ -132,7 +132,7 @@ def stage_fly():
     terms = {tuple(int(i) for i in k.split(",")): v
              for k, v in M["terms"].items()}
     from qci_dirac_common import make_qci_client
-    from fable_qci_robust import submit_and_wait
+    from engine_qci_robust import submit_and_wait
     client, _ = make_qci_client()
     data = []
     for c, v in terms.items():
@@ -151,7 +151,7 @@ def stage_fly():
     for r in range(N_JOBS):
         body = client.build_job_body(
             job_type="sample-hamiltonian-integer", job_name=f"ulbgen_{r}",
-            job_tags=["fable", "qgen", "ulb"],
+            job_tags=["first-principles", "qgen", "ulb"],
             job_params={"device_type": "dirac-3", "num_samples": SAMPLES_PER,
                         "relaxation_schedule": 1,
                         "num_levels": [2] * M["nb"]},

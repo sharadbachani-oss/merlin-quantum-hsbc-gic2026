@@ -1,0 +1,78 @@
+{
+  "status": "PROTOCOL_ONLY",
+  "matching_job": null,
+  "sendable": false,
+  "inspected_job_ids": [
+    "daba21jvpcac73ddh9h0",
+    "dab7i5mrrl7c7386gfh0",
+    "dab6vi34clkc73fij1ig",
+    "dab6therrl7c7386flo0",
+    "dab6q3jvpcac73dddf5g",
+    "daaui7bvpcac73dd29r0",
+    "daauh2rvpcac73dd28d0",
+    "daaufa34clkc73fi79og",
+    "daauekb4clkc73fi78s0",
+    "daauddbvpcac73dd2430",
+    "daaucejvpcac73dd232g",
+    "daatu7j4clkc73fi68vg",
+    "daa9pn4e74ec73akj9i0",
+    "daa9fnerbfbs73cifcjg",
+    "daa9fgurbfbs73cifcc0",
+    "daa9f09qtnsc73d2db5g",
+    "daa9do6rbfbs73cifa80",
+    "daa3osce74ec73akcmb0",
+    "daa1akce74ec73ak9qcg",
+    "daa19lerbfbs73ci66eg",
+    "daa0hburbfbs73ci5ai0",
+    "daa0dq6rbfbs73ci56bg",
+    "daa0bqce74ec73ak8mgg",
+    "daa0bc1qtnsc73d231v0",
+    "da9vgsmrbfbs73ci44d0",
+    "da9vdfmrbfbs73ci40ng",
+    "da9vblkjbipc73ffaio0",
+    "da9uoierbfbs73ci3aq0",
+    "da9ujnkjbipc73ff9ppg",
+    "da9m5purbfbs73chqglg",
+    "da9m5berbfbs73chqg80",
+    "da9lqeerbfbs73chq63g",
+    "da9lp8pqtnsc73d1o5gg",
+    "da9llqerbfbs73chq1og",
+    "da9l9rkjbipc73ff0aqg",
+    "da9l3t1qtnsc73d1nhd0",
+    "da9l2t9qtnsc73d1nfrg",
+    "da9krq4jbipc73fevsfg",
+    "da9krc4jbipc73fevs30",
+    "da9eoe6rbfbs73chiq0g"
+  ],
+  "rejected_priors": {
+    "daaucejvpcac73dd232g": "128q feature map (annex)",
+    "dab6therrl7c7386flo0": "128q generative card (annex)",
+    "daba21jvpcac73ddh9h0": "87q data-encoded Boltzmann (annex)",
+    "d95c8revtlqs73fv8es0": "first-principles Walsh \u03a9-echo lock, not payment-graph S(\u03c9)",
+    "d95c8rmvtlqs73fv8esg": "first-principles witness, not this family"
+  },
+  "reasons": [
+    {
+      "daba21jvpcac73ddh9h0": "87q data-encoded Boltzmann (annex)"
+    },
+    {
+      "dab6therrl7c7386flo0": "128q generative card (annex)"
+    },
+    {
+      "daaucejvpcac73dd232g": "128q feature map (annex)"
+    }
+  ],
+  "n_circuits": 40,
+  "shots": 8192,
+  "family": [
+    "null",
+    "ring4",
+    "ring6",
+    "star",
+    "omega_echo"
+  ],
+  "next_flight": "python hsbc_ibm_somega_flight.py submit --i-accept-the-queue   # still requires HSBC_SOMEGA_SUBMIT=1",
+  "default": "NO SUBMIT",
+  "card": "HSBC S(\u03c9) 6q Heron family",
+  "shots_invented": false
+}

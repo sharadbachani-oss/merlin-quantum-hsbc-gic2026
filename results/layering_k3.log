@@ -1,0 +1,5 @@
+layering wall  kappa=3.927050983  Delta_s=0.4862544125  eps=1e-06
+  null_native  k=1 n= 6 E= 3 2q=  3 chi=   8/8     S=1.232 w1=2.5201 (0.0s)
+  null_native  k=2 n=12 E= 7 2q=  8 chi=  64/64    S=2.756 w1=4.2328 (11.2s)   null_native  k=3 n=18 E=11 2q= 13 chi= 509/512   S=4.016 w1=6.1657 (2618.8s)
+  aml_ring4    k=1 n= 6 E= 6 2q=  9 chi=   8/8     S=1.600 w1=0.9298 (1.1s)
+  aml_ring4    k=2 n=12 E=13 2q= 20 chi=  64/64    S=3.126 w1=1.7616 (19.1s)

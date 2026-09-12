@@ -1,0 +1,35 @@
+[
+ {
+  "family": "aml_ring6",
+  "k": 1,
+  "n_qubits": 6,
+  "global_lead_omega": 0.6097811827619939,
+  "global_lead_weight": 0.03162096717098802,
+  "local_lead_omega": 2.6830372041527735,
+  "local_lead_weight": 0.019422027925636194,
+  "local_signal_amplitude": 0.9524057772715928,
+  "seconds": 0.2
+ },
+ {
+  "family": "aml_ring6",
+  "k": 2,
+  "n_qubits": 12,
+  "global_lead_omega": 15.268920816360328,
+  "global_lead_weight": 0.0055665708804913325,
+  "local_lead_omega": 1.7561698063545426,
+  "local_lead_weight": 0.014475746793205561,
+  "local_signal_amplitude": 0.6547729958426814,
+  "seconds": 1.6
+ },
+ {
+  "family": "aml_ring6",
+  "k": 3,
+  "n_qubits": 18,
+  "global_lead_omega": 15.683572020638485,
+  "global_lead_weight": 0.010407783421250852,
+  "local_lead_omega": 1.8293435482859817,
+  "local_lead_weight": 0.03613057371700856,
+  "local_signal_amplitude": 0.6048599569244648,
+  "seconds": 575.8
+ }
+]

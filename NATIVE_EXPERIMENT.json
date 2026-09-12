@@ -1,0 +1,27 @@
+{
+  "version": 6,
+  "track": "HSBC",
+  "status": "PROPOSED_NOT_FLOWN",
+  "observable": "local commutator response i<[Z0,Z0(t)]>/2",
+  "next": "Compile and run the short v6 qualification twice; extend only after matched-baseline and signal gates pass.",
+  "baselines": [
+    "dense or Krylov direct real-time response",
+    "converged MPS and Heisenberg local-observable evolution",
+    "graph-local surrogate and labelled classical AML model"
+  ],
+  "required_controls": [
+    "same instance and observable",
+    "null perturbation",
+    "coupling/encoding ablation",
+    "independent repeat"
+  ],
+  "acceptance": "quantum upper confidence bound < best classical lower bound at identical accuracy and total cost; application mapping separately validated",
+  "backend": null,
+  "layout": null,
+  "job_id": null,
+  "quoted_cost": null,
+  "new_hardware_advantage_demonstrated": false,
+  "executable_manifest": "response_v6/manifest.json",
+  "first_stage": "times <= 0.25; deeper points require device qualification",
+  "qualification_is_not_advantage": true
+}

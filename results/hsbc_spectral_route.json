@@ -1,0 +1,366 @@
+{
+  "title": "HSBC first-principles-native route \u2014 payment-graph S(omega)",
+  "seed": 21,
+  "constants": {
+    "kappa": 3.927050983124843,
+    "delta": 0.8392289315034753,
+    "chi": 0.3973002226440013,
+    "theta_star": 0.776195881506894,
+    "E0_closed": -2.5176867945104258,
+    "delta_s_reference": 0.486254,
+    "native_loops": [
+      4,
+      4,
+      6
+    ],
+    "H": "kappa D_G - A_G",
+    "provenance": "DERIVED from N=6 structural spectral gap; no fitted fraud couplings"
+  },
+  "native_operator_gate": {
+    "kappa": 3.927050983124843,
+    "delta": 0.8392289315034753,
+    "chi": 0.3973002226440013,
+    "theta_star": 0.776195881506894,
+    "E0": -2.5176867945104284,
+    "E0_closed": -2.5176867945104258,
+    "gap": 0.8392289315034731,
+    "gap_closed": 0.8392289315034753,
+    "ZZ_pairs": [
+      0.700569937702407,
+      0.700569937702407,
+      0.7005699377024067
+    ],
+    "ZZ_closed": 0.7005699377024073,
+    "X_mean": 0.7135837458824611,
+    "X_closed": 0.7135837458824614,
+    "prep": "per pair RY(theta*) . CX . H H \u2014 3 CX, fidelity 1",
+    "pass_E0": true,
+    "pass_gap": true,
+    "pass_ZZ": true
+  },
+  "six_qubit_tile": {
+    "null_native": {
+      "extra_edges": [],
+      "n_extra": 0,
+      "E0": -2.5176867945104284,
+      "gap": 0.8392289315034731,
+      "gap_shift_from_delta": -2.220446049250313e-15,
+      "echo_mean": 0.9999999999999998,
+      "echo_contrast": 1.0000000000000002,
+      "peak_omega": 2.520124947973121,
+      "peak_height": 0.08305720708329568,
+      "weight_near_delta": 1.9783712161139194e-07,
+      "weight_near_delta_s": 2.8418278216419356e-08,
+      "|L|(t=0)": 0.9999999999999998
+    },
+    "aml_ring4": {
+      "extra_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "n_extra": 3,
+      "E0": -0.9280760789762424,
+      "gap": 0.01620066752532534,
+      "gap_shift_from_delta": -0.82302826397815,
+      "echo_mean": 0.5023671000234823,
+      "echo_contrast": 0.9784132086243047,
+      "peak_omega": 0.9297548351745493,
+      "peak_height": 0.031262687130495855,
+      "weight_near_delta": 0.31169607766157037,
+      "weight_near_delta_s": 0.000253669177579174,
+      "|L|(t=0)": 1.0000000000000002,
+      "S_tv_vs_null": 0.99999156943522
+    },
+    "aml_ring6": {
+      "extra_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "n_extra": 5,
+      "E0": -0.5994457654883799,
+      "gap": 0.0032642826546186443,
+      "gap_shift_from_delta": -0.8359646488488567,
+      "echo_mean": 0.38680902605944856,
+      "echo_contrast": 0.8673314985220569,
+      "peak_omega": 0.5872135801102417,
+      "peak_height": 0.03167410365469367,
+      "weight_near_delta": 0.1294095310352667,
+      "weight_near_delta_s": 0.18667928152291433,
+      "|L|(t=0)": 0.9999999999999998,
+      "S_tv_vs_null": 0.9999971114132361
+    },
+    "smurf_star": {
+      "extra_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_extra": 3,
+      "E0": -0.958459335950005,
+      "gap": 0.018980694134205667,
+      "gap_shift_from_delta": -0.8202482373692697,
+      "echo_mean": 0.42315496784019985,
+      "echo_contrast": 0.8786938481015877,
+      "peak_omega": 0.9542220676791427,
+      "peak_height": 0.050810790570673454,
+      "weight_near_delta": 0.4627175129793498,
+      "weight_near_delta_s": 0.0001627862381147218,
+      "|L|(t=0)": 0.9999999999999998,
+      "S_tv_vs_null": 0.9999888114648235
+    }
+  },
+  "noise_instrument": {
+    "null_native": {
+      "late_isotropic": 0.06464329321490633,
+      "late_parity_protected": 0.20324318755690907,
+      "protection_ratio": 3.1440722996773696
+    },
+    "aml_ring4": {
+      "late_isotropic": 0.03224724635725342,
+      "late_parity_protected": 0.2212195051720667,
+      "protection_ratio": 6.860105285309345
+    }
+  },
+  "entanglement_wall": {
+    "n": 10,
+    "cut": 5,
+    "init": "|+>^n quench under H[G]",
+    "times": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      6.0,
+      8.0
+    ],
+    "entropy_path": [
+      -0.0,
+      0.8721072872671493,
+      1.5517416094457577,
+      1.956704538654524,
+      1.9444834096765424,
+      1.5717208024161924,
+      2.077526166594251
+    ],
+    "entropy_cycle": [
+      -0.0,
+      1.5933364883473362,
+      1.4680042024247646,
+      0.5890059759122381,
+      1.6076033153763798,
+      1.0728233310372763,
+      1.3042361615379539
+    ],
+    "entropy_at_t8_path": 2.077526166594251,
+    "entropy_at_t8_cycle": 1.3042361615379539,
+    "dS_cycle_minus_path": [
+      0.0,
+      0.721229201080187,
+      -0.08373740702099308,
+      -1.367698562742286,
+      -0.33688009430016264,
+      -0.49889747137891605,
+      -0.7732900050562972
+    ],
+    "dS_max": 0.721229201080187,
+    "dS_at_t1": 0.721229201080187,
+    "chi_eps1e-6_t8_path": 32,
+    "chi_eps1e-6_t8_cycle": 32,
+    "ladder_2x4_entropy": [
+      -0.0,
+      2.1815528009688734,
+      1.7037642951083618,
+      2.06486516704864,
+      2.1573915680984217
+    ],
+    "path8_entropy": [
+      -0.0,
+      0.8719291660939649,
+      1.6479102289185987,
+      1.9263419753462216,
+      1.4665388214388861
+    ],
+    "note": "A payment ring wraps the cut immediately: at t=1 the cycle entanglement exceeds the path (light cone has not arrived). Later the same wrap produces a revival and entropy can drop \u2014 that revival is the echo the device reads. Loops force the TN to pay now; they also are the AML coherence."
+  },
+  "continuation_exhibit": {
+    "mean_abs_G_residual": 7.44981178413262e-08,
+    "max_abs_G_residual": 2.0076461237916732e-07,
+    "spectral_tv_distance": 1.0,
+    "n_lines_A": 4,
+    "n_lines_B": 8,
+    "om_A": [
+      0.4,
+      0.84,
+      1.68,
+      2.52
+    ],
+    "w_A": [
+      0.18,
+      0.44,
+      0.26,
+      0.12
+    ],
+    "om_B": [
+      0.15,
+      0.35333333333333333,
+      0.5566666666666666,
+      0.76,
+      0.9633333333333334,
+      1.1666666666666665,
+      1.3699999999999999,
+      1.5733333333333333,
+      1.7766666666666666,
+      1.98,
+      2.183333333333333,
+      2.3866666666666667,
+      2.59,
+      2.7933333333333334,
+      2.9966666666666666,
+      3.2
+    ],
+    "w_B": [
+      0.0,
+      0.09770202668021835,
+      0.15448866263391203,
+      0.1061888961888205,
+      0.2918430613309127,
+      0.0,
+      0.0,
+      0.03430952364977562,
+      0.20320234795948253,
+      0.0,
+      0.0,
+      0.03606473605425134,
+      0.07620074550262688,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "taus": [
+      0.15,
+      0.21063829787234042,
+      0.2712765957446809,
+      0.3319148936170213,
+      0.39255319148936174,
+      0.45319148936170217,
+      0.5138297872340426,
+      0.574468085106383,
+      0.6351063829787235,
+      0.6957446808510639,
+      0.7563829787234043,
+      0.8170212765957447,
+      0.8776595744680852,
+      0.9382978723404256,
+      0.998936170212766,
+      1.0595744680851065,
+      1.1202127659574468,
+      1.1808510638297873,
+      1.2414893617021276,
+      1.302127659574468,
+      1.3627659574468085,
+      1.423404255319149,
+      1.4840425531914894,
+      1.5446808510638297,
+      1.6053191489361702,
+      1.6659574468085108,
+      1.726595744680851,
+      1.7872340425531914,
+      1.847872340425532,
+      1.9085106382978725,
+      1.9691489361702128,
+      2.029787234042553,
+      2.0904255319148937,
+      2.151063829787234,
+      2.2117021276595747,
+      2.272340425531915,
+      2.3329787234042554,
+      2.393617021276596,
+      2.454255319148936,
+      2.5148936170212766,
+      2.575531914893617,
+      2.6361702127659576,
+      2.696808510638298,
+      2.7574468085106383,
+      2.818085106382979,
+      2.8787234042553194,
+      2.9393617021276595,
+      3.0
+    ],
+    "note": "Spectrum A has 4 lines; spectrum B is a 16-line non-negative fit to the same G(\u03c4). Distinct S(\u03c9), interchangeable imaginary-time data."
+  },
+  "advantage": {
+    "object": "S(omega) of H[G] = kappa D_G - A_G after a payment-graph quench",
+    "classical_route": "imaginary-time G(tau) + analytic continuation (ill-posed)",
+    "quantum_route": "real-time Loschmidt echo + Fourier (no continuation)",
+    "aml4_S_tv_vs_native": 0.99999156943522,
+    "smurf_S_tv_vs_native": 0.9999888114648235,
+    "aml4_gap_shift": -0.82302826397815,
+    "smurf_gap_shift": -0.8202482373692697,
+    "aml4_echo_mean": 0.5023671000234823,
+    "null_echo_mean": 0.9999999999999998,
+    "entropy_cycle_minus_path_t8": -0.7732900050562972,
+    "entropy_cycle_minus_path_t1": 0.721229201080187,
+    "entropy_dS_max": 0.721229201080187,
+    "ring_over_star_echo_mean": 1.1871941444704865,
+    "noise_protection_ring_over_native": 2.1819171543902782,
+    "continuation_tv": 1.0,
+    "continuation_G_residual": 7.44981178413262e-08,
+    "static_census_honesty": "A 4-cycle census is classically cheap and is not the claimed object. The claimed object is the interacting dynamical spectrum of H[G]. Cycle counting answers 'is there a ring'; S(omega) answers 'how that ring responds', which is the photo-response analog (A(omega)) for a payment graph."
+  },
+  "gates": {
+    "native_operator_identity": true,
+    "continuation_illposed": true,
+    "loop_entanglement_wall": true,
+    "tile_response_distinct": true,
+    "noise_as_instrument": true
+  },
+  "hardware_status": {
+    "this_script": "model gate / expected signature \u2014 no shots claimed",
+    "prior_jobs_not_this_protocol": [
+      "ibm_fez dab6therrl7c7386flo0 \u2014 128q generative card (annex)",
+      "ibm_fez daaucejvpcac73dd232g \u2014 128q feature map, +0.0023 AUPRC null (annex)",
+      "ibm_fez daba21jvpcac73ddh9h0 \u2014 87q data-encoded Boltzmann (negative)",
+      "QuEra Aquila 8 jobs \u2014 256-atom feature encoding, not S(omega)",
+      "QCi Dirac-3 354 jobs \u2014 fitted 3-body landscape (annex, not the route)"
+    ]
+  },
+  "seconds": 4.979
+}

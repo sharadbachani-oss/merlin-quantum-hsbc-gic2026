@@ -1,0 +1,187 @@
+{
+  "title": "HSBC hardware protocol \u2014 S(\u03c9) of H[G] on today's devices",
+  "status": "PROTOCOL + EXPECTED SIGNATURE. No shots in this file.",
+  "ibm_heron": {
+    "device_class": "Heron r2 (ibm_fez / ibm_kingston / ibm_marrakesh)",
+    "tile": "6 qubits, native pairs on a heavy-hex path",
+    "prep": "RY(theta*) CX H H per pair \u2014 3 CX, fidelity 1",
+    "observable": "Loschmidt survival after inverse prep; FFT \u2192 S(\u03c9)",
+    "in_job_controls": [
+      "null extra-edge family (native operator only)",
+      "replica pair on one tile",
+      "interference echo calibration tile (\u0394s = 0.486254)"
+    ],
+    "flight_family": [
+      "null",
+      "ring4",
+      "ring6",
+      "star",
+      "echo"
+    ],
+    "times": [
+      0.0,
+      1.6,
+      3.2,
+      4.8,
+      6.4,
+      8.0,
+      9.6,
+      11.2
+    ],
+    "n_circuits_per_family": 8,
+    "n_circuits_flight": 40,
+    "shots_recommended": 8192,
+    "aml4_extra_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "family_extra_edges": {
+      "null": [],
+      "ring4": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "ring6": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "star": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    "n_2q_at_t4.8_aml": 36,
+    "n_2q_at_t4.8_aml_HG": 66,
+    "echo_check": {
+      "observable": "Delta_s",
+      "closed_form": 0.486254,
+      "protocol": "qc.ibm.echo / tiled Heron echo (first-principles)",
+      "pass_band": "peak within 5% of 0.486254 on a calibration tile",
+      "role": "device is an instrument only if it first reads its own line",
+      "prior_first-principles_job_not_this_family": "ibm_kingston d95c8revtlqs73fv8es0 measured 0.4883 vs 0.486254 (0.43%). That is the first-principles Walsh interference echo lock, not the payment-graph S(\u03c9) family."
+    },
+    "frozen_bands": {
+      "echo_closed_form": 0.486254,
+      "echo_rel_tol": 0.05,
+      "delta_closed_form": 0.8392289315034753,
+      "null_survival_min": 0.85,
+      "ring6_delta_s_weight_min": 0.1,
+      "star_delta_s_weight_max": 0.01,
+      "delta_s_window": [
+        0.366254,
+        0.6062540000000001
+      ],
+      "delta_window": [
+        0.6392289315034754,
+        1.0392289315034753
+      ],
+      "shots": 8192,
+      "times": [
+        0.0,
+        1.6,
+        3.2,
+        4.8,
+        6.4,
+        8.0,
+        9.6,
+        11.2
+      ]
+    },
+    "qasm_example": "hsbc_ibm_somega_t4.8.qasm",
+    "qasm_family_dir": "results/somega_family",
+    "one_command": "python hsbc_ibm_somega_flight.py   # retrieve-or-search; never submits",
+    "matching_job": null
+  },
+  "aquila": {
+    "device": "QuEra Aquila (Braket analog)",
+    "exact_map": {
+      "pairs_per_shot": 12,
+      "atoms": 24,
+      "cells": 4,
+      "V": "2 \u03ba E_u",
+      "Delta": "\u03ba E_u",
+      "rabi_Omega": "2 E_u",
+      "map_error": "1e-9 (first-principles qc.aquila)",
+      "crosstalk_bound": "9.96e-4",
+      "fov_note": "Binding constraint is 75\u00d776 \u00b5m FOV + Rb C6, not the 256-atom budget. Packing 252 atoms destroys the exact map."
+    },
+    "payment_encoding": "Native pairs realize H = \u03ba D \u2212 A. Extra payment-graph edges that do not fit the exact pair geometry are local detunings on the corresponding atoms (transaction shock), not extra packed atoms.",
+    "readout": "atom-resolved populations over a 4 \u00b5s analog window \u2192 L(t) \u2192 S(\u03c9)",
+    "expected_signature": {
+      "native_cell": "pair gap \u03b4 = 0.839229 in the analog spectrum",
+      "aml_ring_detuning": "excess low-\u03c9 weight vs null-detuning interleaves",
+      "null_control": "zero extra detuning, same geometry, same shot budget"
+    },
+    "prior_256_atom_jobs": "Eight earlier Aquila jobs (99.3% loading) encoded classical fraud features as detunings for an ML feature map. That is not this protocol and is not cited as S(\u03c9) evidence."
+  },
+  "expected_signatures": {
+    "source": "hsbc_spectral_route.json (model gate, exact diag, no shots)",
+    "native_line_Hz_natural_units": 0.8392289315034753,
+    "aml4_peak_over_legit": null,
+    "continuation_tv": 1.0,
+    "continuation_G_residual": 7.44981178413262e-08,
+    "schmidt_chi_cycle_over_path": null,
+    "hardware_claim": "none \u2014 signatures are the pass/fail bands for a future job"
+  },
+  "what_would_pass_a_hardware_gate": [
+    "interference echo tile hits \u0394s = 0.486254 within the frozen band",
+    "native-null family recovers the \u03b4 = 0.839229 line",
+    "AML extra-edge family shows excess low-\u03c9 weight vs null, same shots",
+    "scrambled-edge control does not",
+    "girth-6 shows \u0394s weight the star does not (model-gate 18.7% vs ~0.02%)"
+  ],
+  "what_is_not_evidence": [
+    "Dirac-3 fitted 3-body landscape (+5.8 pp AUPRC) \u2014 annex",
+    "128-qubit feature map (+0.0023 AUPRC) \u2014 null, annex",
+    "256-atom Aquila feature encoding \u2014 different protocol",
+    "first-principles Walsh interference echo d95c8revtlqs73fv8es0 \u2014 instrument lock, not this family"
+  ]
+}

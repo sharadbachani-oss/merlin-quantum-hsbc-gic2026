@@ -1,0 +1,63 @@
+{
+ "card": "classical comparator arm, payment-network retarded response",
+ "family": "aml_ring6",
+ "fidelity_target": 0.999,
+ "rows": [
+  {
+   "k": 1,
+   "n_qubits": 6,
+   "edges": 8,
+   "chi_cap": 8,
+   "chi_by_ordering": {
+    "sequence": 8,
+    "pair_adjacent": 8,
+    "layer_grouped": 8
+   },
+   "chi_best_ordering": 8,
+   "classical_cost_proxy": 384.0,
+   "quantum_logical_cx": 43
+  },
+  {
+   "k": 2,
+   "n_qubits": 12,
+   "edges": 17,
+   "chi_cap": 64,
+   "chi_by_ordering": {
+    "sequence": 55,
+    "pair_adjacent": 53,
+    "layer_grouped": 46
+   },
+   "chi_best_ordering": 46,
+   "classical_cost_proxy": 25392.0,
+   "quantum_logical_cx": 94
+  },
+  {
+   "k": 3,
+   "n_qubits": 18,
+   "edges": 26,
+   "chi_cap": 512,
+   "chi_by_ordering": {
+    "sequence": 425,
+    "pair_adjacent": 352,
+    "layer_grouped": 219
+   },
+   "chi_best_ordering": 219,
+   "classical_cost_proxy": 863298.0,
+   "quantum_logical_cx": 145
+  }
+ ],
+ "chi_growth_per_layer": [
+  5.75,
+  4.760869565217392
+ ],
+ "cap_growth": [
+  8.0,
+  8.0
+ ],
+ "quantum_cx_growth": [
+  2.186046511627907,
+  1.5425531914893618
+ ],
+ "scope": "measured cost for this instance family, observable, accuracy target and orderings searched; credible classical baseline and censored benchmark observation, not a complexity proof",
+ "quantum_cost_rule": "8 logical CX per evolved pair plus one CX per pair for preparation, constant in evolution time; physical routing separate"
+}

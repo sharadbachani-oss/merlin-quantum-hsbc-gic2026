@@ -11,7 +11,7 @@ fraud samples to break class imbalance. Every one of them uses a
 VARIATIONAL generator — parameterised circuits trained by a classical
 optimiser — which hits barren plateaus and confines them to ~10-20 qubits.
 
-This card does the same job with NO TRAINING at 64 rungs / 128 qubits:
+This card does the same job with NO TRAINING at 64 pairs / 128 qubits:
 the framework's hard-sector dynamics are a native generator whose output
 distribution is adjudicated classically unreachable. Sampling from it is
 the one provably hard oracle in this problem class (circuit-sampling
@@ -19,11 +19,11 @@ hardness), which is why generation — not classification — is where the
 advantage lives.
 
 MECHANISM (conditional generator):
-  real fraud sample f  ->  per-rung prep angles + local tilts
+  real fraud sample f  ->  per-pair prep angles + local tilts
   ->  evolve to k in the hard window
   ->  EACH SHOT is a sample from a classically-hard conditional
       distribution around f
-  ->  decode rung-parity pattern -> perturbation delta in feature space
+  ->  decode pair-parity pattern -> perturbation delta in feature space
   ->  synthetic fraud sample  f' = f + alpha * delta
 One job of 8,192 shots per seed sample yields thousands of synthetic
 minority points carrying many-body correlation structure that SMOTE
@@ -51,7 +51,7 @@ N_SEED = 64               # real fraud samples used as conditions
 SHOTS = 8192              # -> 8192 synthetic samples per seed
 N_FEAT = 16
 STATE = os.path.join(WORK, "qgen_state.json")
-sys.path.insert(0, r"C:\fable\python")
+sys.path.insert(0, r"C:\first-principles\python")
 
 
 def load_data():
@@ -110,25 +110,25 @@ def stage_prep():
     return 0
 
 
-def build_template(k, rungs, bonds, nq):
+def build_template(k, pairs, bonds, nq):
     from qiskit import QuantumCircuit
     from qiskit.circuit import Parameter
     pa = [Parameter(f"a{i}") for i in range(8)]
     pt = [Parameter(f"t{i}") for i in range(8)]
-    sec = max(1, len(rungs) // 8)
+    sec = max(1, len(pairs) // 8)
     qc = QuantumCircuit(nq, nq)
-    for r, (a, b) in enumerate(rungs):
+    for r, (a, b) in enumerate(pairs):
         qc.ry(pa[min(r // sec, 7)], a)
-        qc.cx(a, b)                                   # rung correlation
+        qc.cx(a, b)                                   # pair correlation
     for _ in range(k):
-        for (a, b) in rungs:
+        for (a, b) in pairs:
             qc.rzz(-MU * DT, a, b)
-        for (a, b) in rungs:
+        for (a, b) in pairs:
             qc.rx(-2 * DT, a); qc.rx(-2 * DT, b)
         for layer in bonds:
             for (a, b) in layer:
                 qc.rxx(2 * GB * DT, a, b)
-        for r, (a, b) in enumerate(rungs):
+        for r, (a, b) in enumerate(pairs):
             qc.rz(pt[min(r // sec, 7)] * DT, a)
     qc.measure(range(nq), range(nq))
     return qc, pa, pt
@@ -143,7 +143,7 @@ def angles(fv):
 def stage_fly():
     from qiskit import transpile
     from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2
-    import fable_a1_flight as A
+    import engine_a1_flight as A
     S = np.load(os.path.join(WORK, "qgen_seeds.npy"))
     svc = QiskitRuntimeService(instance=OPEN_CRN)
     pend = {}
@@ -154,9 +154,9 @@ def stage_fly():
             pend[b] = 10 ** 6
     name = min(pend, key=pend.get); backend = svc.backend(name)
     print(f"  queue {pend} -> {name}", flush=True)
-    rungs, bonds, nq = A.colour_edges(backend)
-    print(f"  {len(rungs)} rungs ({2*len(rungs)} qubits) on {name}", flush=True)
-    tmpl, pa, pt = build_template(K_GEN, rungs, bonds, nq)
+    pairs, bonds, nq = A.colour_edges(backend)
+    print(f"  {len(pairs)} pairs ({2*len(pairs)} qubits) on {name}", flush=True)
+    tmpl, pa, pt = build_template(K_GEN, pairs, bonds, nq)
     tt = transpile(tmpl, backend, optimization_level=1, seed_transpiler=21)
     n2 = tt.count_ops()
     print(f"  template 2q gates: "
@@ -178,7 +178,7 @@ def stage_fly():
     s.options.dynamical_decoupling.sequence_type = "XpXm"
     job = s.run(circs, shots=SHOTS)
     json.dump(dict(job=job.job_id(), backend=name, names=names,
-                   rungs=[list(r) for r in rungs], k=K_GEN, shots=SHOTS),
+                   pairs=[list(r) for r in pairs], k=K_GEN, shots=SHOTS),
               open(STATE, "w"), indent=1)
     print(f"Q-GEN submitted: {job.job_id()} ({len(circs)} x {SHOTS} on "
           f"{name})  -> {len(S)*SHOTS:,} synthetic samples", flush=True)
@@ -186,7 +186,7 @@ def stage_fly():
 
 
 def stage_decode():
-    """each SHOT -> a rung-parity pattern -> a perturbation in feature
+    """each SHOT -> a pair-parity pattern -> a perturbation in feature
     space -> one synthetic minority sample."""
     from qiskit_ibm_runtime import QiskitRuntimeService
     st = json.load(open(STATE))
@@ -194,16 +194,16 @@ def stage_decode():
     S = np.load(os.path.join(WORK, "qgen_seeds.npy"))
     svc = QiskitRuntimeService(instance=OPEN_CRN)
     res = svc.job(st["job"]).result()
-    rungs = [tuple(r) for r in st["rungs"]]
-    nr = len(rungs); sec = max(1, nr // N_FEAT)
+    pairs = [tuple(r) for r in st["pairs"]]
+    nr = len(pairs); sec = max(1, nr // N_FEAT)
 
     def shot_vectors(counts):
-        """rung parities -> N_FEAT sector means in [-1,1]."""
+        """pair parities -> N_FEAT sector means in [-1,1]."""
         out = []
         for bits, c in counts.items():
             sb = bits.replace(" ", "")[::-1]
             par = np.array([1 - 2 * (int(sb[a]) ^ int(sb[b]))
-                            for a, b in rungs], float)
+                            for a, b in pairs], float)
             v = np.array([par[i*sec:(i+1)*sec].mean()
                           for i in range(N_FEAT)])
             out.extend([v] * int(c))

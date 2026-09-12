@@ -1,0 +1,35 @@
+[
+ {
+  "family": "smurf_star",
+  "k": 1,
+  "n_qubits": 6,
+  "global_lead_omega": 0.9512586451087106,
+  "global_lead_weight": 0.05059571693215236,
+  "local_lead_omega": 4.414815763196835,
+  "local_lead_weight": 0.016959425715363664,
+  "local_signal_amplitude": 0.46968172724448365,
+  "seconds": 0.2
+ },
+ {
+  "family": "smurf_star",
+  "k": 2,
+  "n_qubits": 12,
+  "global_lead_omega": 1.878126042906941,
+  "global_lead_weight": 0.0060632656753631855,
+  "local_lead_omega": 4.292859526644437,
+  "local_lead_weight": 0.03284777362528288,
+  "local_signal_amplitude": 0.40537228443732565,
+  "seconds": 1.9
+ },
+ {
+  "family": "smurf_star",
+  "k": 3,
+  "n_qubits": 18,
+  "global_lead_omega": 2.8049934407051724,
+  "global_lead_weight": 0.0014491726096576086,
+  "local_lead_omega": 4.292859526644437,
+  "local_lead_weight": 0.03362206321131862,
+  "local_signal_amplitude": 0.4061744944004046,
+  "seconds": 578.1
+ }
+]

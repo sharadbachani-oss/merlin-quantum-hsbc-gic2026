@@ -1,0 +1,3 @@
+  aml_ring4 k=1 n= 6 | GLOBAL w1=0.9269 weight=0.03117 | LOCAL w1=2.6099 weight=0.03144 amp=1.2451  (0.2s)
+  aml_ring4 k=2 n=12 | GLOBAL w1=1.7562 weight=0.00391 | LOCAL w1=1.7318 weight=0.01133 amp=0.6619  (1.9s)
+  aml_ring4 k=3 n=18 | GLOBAL w1=14.4152 weight=0.00196 | LOCAL w1=1.3903 weight=0.01326 amp=0.5635  (577.5s)

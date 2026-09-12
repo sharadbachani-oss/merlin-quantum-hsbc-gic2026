@@ -1,0 +1,208 @@
+{
+ "device": {
+  "C6_rad_s_um6": 5420000000000.0,
+  "Omega_max_rad_s": 25000000.0,
+  "tau_max_s": 4e-06,
+  "r_min_um": 4.0,
+  "fov_um": [
+   75.0,
+   76.0
+  ]
+ },
+ "algebra": [
+  {
+   "family": "null_native",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 3,
+   "max_map_error": 2.220446049250313e-15,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 3.927050983124843,
+   "max_degree": 1
+  },
+  {
+   "family": "aml_ring4",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 6,
+   "max_map_error": 5.773159728050814e-15,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 11.781152949374528,
+   "max_degree": 3
+  },
+  {
+   "family": "aml_ring6",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 8,
+   "max_map_error": 5.329070518200751e-15,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 7.854101966249686,
+   "Delta_max": 11.781152949374528,
+   "max_degree": 3
+  },
+  {
+   "family": "smurf_star",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 6,
+   "max_map_error": 5.773159728050814e-15,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 15.708203932499371,
+   "max_degree": 4
+  },
+  {
+   "family": "null_native",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 7,
+   "max_map_error": 5.773159728050814e-15,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 7.854101966249686,
+   "max_degree": 2
+  },
+  {
+   "family": "aml_ring4",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 13,
+   "max_map_error": 1.2878587085651816e-14,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 11.781152949374528,
+   "max_degree": 3
+  },
+  {
+   "family": "aml_ring6",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 17,
+   "max_map_error": 2.6645352591003757e-14,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 7.854101966249686,
+   "Delta_max": 11.781152949374528,
+   "max_degree": 3
+  },
+  {
+   "family": "smurf_star",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 13,
+   "max_map_error": 1.2878587085651816e-14,
+   "V_over_Eu": 7.854101966249686,
+   "Delta_min": 3.927050983124843,
+   "Delta_max": 19.635254915624213,
+   "max_degree": 5
+  }
+ ],
+ "clock": {
+  "E_u_rad_s": 12500000.0,
+  "edge_spacing_um": 6.1706671804991196,
+  "min_spacing_um": 4.0,
+  "spacing_ok": true,
+  "t_reachable": 50.0,
+  "t_needed": 32.0,
+  "clock_ok": true
+ },
+ "geometry": [
+  {
+   "max_degree": 1,
+   "degree_crosstalk_floor_pct": 0.0,
+   "edge_length_spread_pct": 2.1634281159403357e-07,
+   "edge_coupling_spread_pct": 1.298056875417604e-06,
+   "worst_nonedge_coupling_pct": 0.23474818528123992,
+   "family": "null_native",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 3
+  },
+  {
+   "max_degree": 3,
+   "degree_crosstalk_floor_pct": 3.703703703703705,
+   "edge_length_spread_pct": 12.662143025570726,
+   "edge_coupling_spread_pct": 67.54316194338841,
+   "worst_nonedge_coupling_pct": 8.338515023513583,
+   "family": "aml_ring4",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 6
+  },
+  {
+   "max_degree": 3,
+   "degree_crosstalk_floor_pct": 3.703703703703705,
+   "edge_length_spread_pct": 25.47755385009822,
+   "edge_coupling_spread_pct": 249.2393792636252,
+   "worst_nonedge_coupling_pct": 5.323741880164745,
+   "family": "aml_ring6",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 8
+  },
+  {
+   "max_degree": 4,
+   "degree_crosstalk_floor_pct": 12.499999999999995,
+   "edge_length_spread_pct": 16.254160252627383,
+   "edge_coupling_spread_pct": 121.13499656202403,
+   "worst_nonedge_coupling_pct": 2.958185846414602,
+   "family": "smurf_star",
+   "k": 1,
+   "n_atoms": 6,
+   "edges": 6
+  },
+  {
+   "max_degree": 2,
+   "degree_crosstalk_floor_pct": 1.5625,
+   "edge_length_spread_pct": 0.0005487048423132637,
+   "edge_coupling_spread_pct": 0.003292173336421958,
+   "worst_nonedge_coupling_pct": 1.5625501953141978,
+   "family": "null_native",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 7
+  },
+  {
+   "max_degree": 3,
+   "degree_crosstalk_floor_pct": 3.703703703703705,
+   "edge_length_spread_pct": 12.237851186287187,
+   "edge_coupling_spread_pct": 74.24508907346086,
+   "worst_nonedge_coupling_pct": 8.712043384617642,
+   "family": "aml_ring4",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 13
+  },
+  {
+   "max_degree": 3,
+   "degree_crosstalk_floor_pct": 3.703703703703705,
+   "edge_length_spread_pct": 25.05386483156799,
+   "edge_coupling_spread_pct": 257.3860884535036,
+   "worst_nonedge_coupling_pct": 5.399357839293255,
+   "family": "aml_ring6",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 17
+  },
+  {
+   "max_degree": 5,
+   "degree_crosstalk_floor_pct": 37.88854381999832,
+   "edge_length_spread_pct": 36.462342241303794,
+   "edge_coupling_spread_pct": 214.41854974280227,
+   "worst_nonedge_coupling_pct": 5.515738929695431,
+   "family": "smurf_star",
+   "k": 2,
+   "n_atoms": 12,
+   "edges": 13
+  }
+ ],
+ "verdict": {
+  "algebra_exact": true,
+  "clock_ok": true,
+  "reference_realisable": true,
+  "discriminator_realisable": false,
+  "statement": "algebra and clock pass; the pair reference embeds exactly; no discriminating typology embeds, because an isotropic r^-6 law cannot draw an arbitrary graph with equal edge lengths"
+ }
+}
