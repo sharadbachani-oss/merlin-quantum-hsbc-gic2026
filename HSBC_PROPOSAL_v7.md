@@ -41,9 +41,11 @@ Assumptions: shared-entity edges carry relational signal; a 20–30-node neighbo
 
 ## 4. Expected impact
 
+![Figure 1 — The tuned temporal baseline on IEEE-CIS: full-set precision–recall against the gray-zone band (left), and the score distributions with the band marked (right) — the band is where analyst workload sits and where per-transaction signal is exhausted.](C:/quantum ai 2026/figs_v7/hsbc_grayzone.png)
+
 **Prior work already receipted.** Tuned temporal baseline AUC 0.9118 / AUPRC 0.5532 (IEEE-CIS); gray zone [0.630, 0.819] frozen, 2,362 transactions, 26% fraud, in-band AUC 0.614. Hardware: 128-qubit feature-extraction card on IBM Heron (206 circuits × 8,192 shots, 2,720 two-qubit gates per circuit, replica agreement 0.0039, `daaucejvpcac73dd232g`); 128-qubit training-free generative card (524,288 samples, `dab6therrl7c7386flo0`); ULB generative augmentation on QCi Dirac-3 (+1.3% AUPRC over an Ising-pair sampler). These establish the instrument and the discipline; none of them is claimed as a detection gain.
 
-![Figure 1 — The control discipline the PoC inherits: gray-zone AUPRC of the classical scorer alone and with the 128-qubit band feature, against random-feature and shuffled-feature arms; the quantum lift is +0.002 and is reported as null.](C:/quantum ai 2026/figs_v7/hsbc_arms.png)
+![Figure 2 — The control discipline the PoC inherits: gray-zone AUPRC of the classical scorer alone and with the 128-qubit band feature, against random-feature and shuffled-feature arms; the quantum lift is +0.002 and is reported as null.](C:/quantum ai 2026/figs_v7/hsbc_arms.png)
 
 **Quantitative PoC targets.** Primary: AUPRC inside the gray zone, classical-only vs classical+response, paired over 5 temporal folds; bar = a lift whose 95% CI excludes zero at fixed alert workload. Secondary (statement §4.1/§5.3): AUC-ROC, F1, precision/recall at the operating threshold on the full held-out set; recall at fixed alert budget; calibration; SHAP attribution of the response block; consistency across fraud types and temporal partitions; simulator-vs-hardware agreement; qubit count, depth, shot budget, and inference latency of the cached-feature path.
 
@@ -75,10 +77,10 @@ Merlin Quantum is the quantum division of Merlin Digital (50+ technology FTE): S
 |---|---|---|---|
 | 128-qubit feature-extraction band card: 206 circuits × 8,192 shots, 2,720 two-qubit gates; four-arm analysis | ibm_fez | `daaucejvpcac73dd232g` | `g4_band_analysis.json`, `ibm_band_state.json` |
 | 128-qubit training-free generative card: 65 circuits × 8,192 shots, 524,288 samples | ibm_fez | `dab6therrl7c7386flo0` | `qgen_result.json`, `qgen_state.json` |
-| ULB generative augmentation, Dirac degree-3 vs Ising pair vs SMOTE/jitter (40 jobs) | QCi Dirac-3 | `6a9679b408442f441bbb6afe` … `6a967f7708442f441bbb6b26` | `ulb_raw.json`, `ulb_model.json` |
+| ULB generative augmentation, Dirac degree-3 vs Ising pair vs SMOTE/jitter (40 jobs) | QCi Dirac-3 | `6a9679b408442f441bbb6afe`, `6a967a3a08442f441bbb6b00`, `6a967c5908442f441bbb6b01`, `6a967c6e08442f441bbb6b02`, `6a967c8a08442f441bbb6b03`, `6a967c9f08442f441bbb6b04`, `6a967cb408442f441bbb6b05`, `6a967cc908442f441bbb6b06`, `6a967cdf08442f441bbb6b07`, `6a967cf408442f441bbb6b08`, `6a967d0908442f441bbb6b09`, `6a967d1e08442f441bbb6b0a`, `6a967d3308442f441bbb6b0b`, `6a967d4908442f441bbb6b0c`, `6a967d5e08442f441bbb6b0d`, `6a967d7308442f441bbb6b0e`, `6a967d8808442f441bbb6b0f`, `6a967d9e08442f441bbb6b10`, `6a967db908442f441bbb6b11`, `6a967dce08442f441bbb6b12`, `6a967de408442f441bbb6b13`, `6a967df908442f441bbb6b14`, `6a967e0e08442f441bbb6b15`, `6a967e2308442f441bbb6b16`, `6a967e3808442f441bbb6b17`, `6a967e4e08442f441bbb6b18`, `6a967e6308442f441bbb6b19`, `6a967e7808442f441bbb6b1a`, `6a967e8d08442f441bbb6b1b`, `6a967ea308442f441bbb6b1c`, `6a967eb808442f441bbb6b1d`, `6a967ecd08442f441bbb6b1e`, `6a967ee208442f441bbb6b1f`, `6a967ef808442f441bbb6b20`, `6a967f0d08442f441bbb6b21`, `6a967f2208442f441bbb6b22`, `6a967f3708442f441bbb6b23`, `6a967f4d08442f441bbb6b24`, `6a967f6208442f441bbb6b25`, `6a967f7708442f441bbb6b26` | `ulb_raw.json`, `ulb_model.json` |
 | 400-job diversity test: 344 jobs → 123 distinct samples (saturation) | QCi Dirac-3 | ids in file | `qgen_ulb400` receipts |
 | Aquila encoding rehearsal, 12 atoms, R1–R4 | Braket local AHS simulator | — | `g2_rehearsal.json` |
-| Temporal LightGBM baseline and gray zone | CPU | — | `g1_baseline_merged.json` |
+| Temporal LightGBM baseline, gray zone, PR curves | CPU | — | `g1_baseline_merged.json`, `baseline_scores_lgbm.npy`, `baseline_ytest.npy` |
 | Alert-policy optimisation gate (greedy = exact) | CPU | — | `policy_gate.json` |
 
 ### Appendix B — Why the earlier formulations were null, and why this one is different
