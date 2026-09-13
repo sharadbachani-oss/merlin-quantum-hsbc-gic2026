@@ -1,6 +1,6 @@
 # HSBC — current package
 
-Read SUBMISSION_NATIVE_v6.md or report.pdf. These supersede the historical narratives in legacy_reports/.
+Read **HSBC_PROPOSAL_v7.md** (source) or **report.pdf** (the Phase-1 concept proposal as submitted, v7.5). These supersede SUBMISSION_NATIVE_v6.md and the historical narratives in legacy_reports/. Run `python verify.py` (numpy only) to replay the headline numbers from archived counts.
 
 Status: MODEL_VALIDATED_HARDWARE_QUALIFICATION_REQUIRED
 
