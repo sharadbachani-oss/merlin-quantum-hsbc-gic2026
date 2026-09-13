@@ -88,7 +88,7 @@ Merlin Quantum is the quantum division of Merlin Digital (50+ technology FTE): S
 | Aquila encoding rehearsal, 12 atoms, R1–R4 | Braket local AHS simulator | — | `g2_rehearsal.json` |
 | Temporal LightGBM baseline, gray zone, PR curves | CPU | — | `g1_baseline_merged.json`, `baseline_scores_lgbm.npy`, `baseline_ytest.npy` |
 | Alert-policy optimisation gate (greedy = exact) | CPU | — | `policy_gate.json` |
-| Graph-shape response oracle vs labels: 10,362 neighbourhoods, K = 6, five arms, five temporal folds on a re-derived 2,362-transaction gray zone | CPU, workstation | — | `hsbc_response_test_workstation.json`, `floor_response_feature.json` |
+| Graph-shape response oracle vs labels: 10,362 neighbourhoods, five arms, five temporal folds | CPU | — | `hsbc_response_test_workstation.json`, `floor_response_feature.json` |
 
 ### Appendix B — Why the response oracle is the admissible formulation
 
@@ -100,7 +100,7 @@ Kernel and feature-map classifiers, training-free samplers, Boltzmann machines a
 |---|---|---|---|---|---|
 | Temporal LightGBM baseline AUC 0.912 / AUPRC 0.553; gray zone frozen | measured | IEEE-CIS winner 0.946 (different protocol) | none | CPU | — |
 | 19 formulations with four control arms: no lift | measured | random / shuffled feature arms | none | 2 IBM jobs, 40+ Dirac jobs | reported as null |
-| Graph-shape-only response feature | **withdrawn on its floor** — deterministic in (n, weight multiset); quadratic in cheap scalars gives R² 0.79–0.998; label test run anyway: AUPRC 0.194 ± 0.058 vs 0.198 ± 0.070 baseline, 0.186 shuffled — null | relational aggregates, shuffled response, random feature | none (exact oracle, 10,362 neighbourhoods, 2.2 h CPU) | floor: minutes | null confirmed on labels, as predicted |
+| Graph-shape-only response feature | **withdrawn on its floor** (R² 0.79–0.998 vs cheap scalars); label test: AUPRC 0.194 vs 0.198 baseline, 0.186 shuffled — null | relational, shuffled, random arms | none | 2.2 h CPU | null on labels, as the floor predicted |
 | Field-carrying response feature (amounts as local fields, time gaps as couplings) | planned (Phase-2, single test) | relational aggregates, diffusion/GNN, shuffled response, classical simulation of the same response | hardware (IonQ via Braket) + exact ≤ 24q | ~4,000 circuits × 1,000 shots | must first clear the cheap-scalar floor, then gray-zone AUPRC lift, 95% CI > 0 |
 | Cheap-scalar floor on the response feature | measured — the feature is a smooth function of two integers | quadratic in (n, Σw, max w, mean w) | none | minutes | R² ≥ 0.9 ⇒ withdraw; observed 0.79–0.998 |
 
