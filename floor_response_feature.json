@@ -1,0 +1,28 @@
+{
+ "card": "cheap-scalar floor on the HSBC graph-shape response feature",
+ "date": "2026-09-13",
+ "finding": "the oracle Hamiltonian depends only on (n_neighbours, weight multiset); the 9 features are a deterministic function of two integers",
+ "n_graph_states": 34,
+ "n_distinct_feature_vectors": 34,
+ "r2_vs_quadratic_in_cheap_scalars": [
+  0.9966,
+  0.9981,
+  0.9981,
+  0.9505,
+  0.9814,
+  0.9937,
+  0.8394,
+  0.8332,
+  0.7922
+ ],
+ "min_r2": 0.7922,
+ "max_r2": 0.9981,
+ "cheap_scalars": [
+  "n",
+  "sum w",
+  "max w",
+  "mean w"
+ ],
+ "verdict": "WITHDRAWN before device time: a gradient-boosted tree given the cheap scalars learns the feature exactly; identical neighbourhood shape gives identical features regardless of transaction amount or timing",
+ "redesign": "transaction amounts as local fields and inter-arrival times as coupling strengths inside the operator; the same floor is the first gate"
+}
