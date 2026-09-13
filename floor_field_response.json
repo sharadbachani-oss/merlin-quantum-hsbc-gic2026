@@ -1,0 +1,56 @@
+{
+ "card": "cheap-scalar floor on the FIELD-CARRYING response feature",
+ "date": "2026-09-14",
+ "M": 600,
+ "cheap_scalars": [
+  "n",
+  "sum_w",
+  "max_w",
+  "mean_w",
+  "z_target",
+  "mean_z_nb",
+  "max_z_nb",
+  "log_min_dt",
+  "mean_log_dt",
+  "sum_J_target",
+  "max_J_target",
+  "sum_J_nbnb"
+ ],
+ "r2_quadratic_in_sample": [
+  0.9892,
+  0.9859,
+  0.9742,
+  0.9035,
+  0.9481,
+  0.8688,
+  0.6348,
+  0.6075,
+  0.4839
+ ],
+ "r2_gbm_cv5": [
+  0.9678,
+  0.9376,
+  0.9543,
+  0.9174,
+  0.8872,
+  0.7923,
+  0.7643,
+  0.681,
+  0.3916
+ ],
+ "within_shape_spread_ratio": [
+  0.473,
+  0.522,
+  0.448,
+  0.591,
+  0.532,
+  0.549,
+  0.656,
+  0.679,
+  0.723
+ ],
+ "features_with_gbm_r2_below_0p8": 4,
+ "mean_spread_ratio": 0.575,
+ "decision_rule": "go to label test iff >=3 features with GBM CV R2 < 0.8 and mean spread ratio > 0.3",
+ "verdict": "GO: response carries configuration information the cheap scalars do not"
+}
