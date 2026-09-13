@@ -53,6 +53,10 @@ Assumptions: shared-entity edges carry relational signal; a 20–30-node neighbo
 
 **The crossing.** Keep the HSBC–IBM shape — offline quantum transform, classical scorer, SHAP — but replace the feature map with the object that has a slowly-decaying spectrum by construction: the **retarded response of a coupled, past-only entity-graph neighborhood**, a real-time, multi-node, deep quantity with a sign structure no local gauge removes. It is the class in which classical simulation loses controlled convergence at 50–100 qubits and the class of our own 128-qubit collective measurements, and the four-arm control design is the search-budget ablation the benchmark literature demands. **Where it is decisive:** in the gray zone, where per-transaction signal is exhausted and relational real-time structure is the signal that remains; the pre-registered gray-zone AUPRC bar with confidence interval on temporal folds is the single test, with simulator-vs-hardware reported alongside.
 
+**Scalability to industrial relevance.** The quantum work is per entity neighbourhood, not per transaction: responses are cached at the entity level (card, address, e-mail domain) and reused across every transaction that touches the entity, so device calls grow with the number of active entities in the gray zone, not with volume. A 20–30-node neighbourhood is 40–60 qubits on an all-to-all ion machine today; the 128-qubit Heron cards already flown bound the depth budget. The scorer, folds and attribution are the issuer's existing LightGBM/SHAP stack.
+
+**Business value, bounded.** The gray zone is where alerts are spent: 2,362 transactions at 26% fraud in the test window, where the baseline's discrimination is 0.61. At fixed analyst workload, every 0.01 of in-band AUPRC is additional fraud caught without additional alerts; with the statement's own figure that each $1 of fraud costs the institution $4.41 all-in, the value of a lift is ≈ 4.41 × (frauds recovered × mean fraud amount) per window, computed from the issuer's own volumes. The PoC reports recall at fixed workload and monetary utility with confidence intervals; no figure is asserted before that measurement.
+
 **What success means for HSBC.** At fixed analyst workload, more fraud caught in the band where the current model is blind, with a per-alert explanation that names the relational path — and a characterisation, as the statement asks, of *under what conditions* the quantum feature helps (neighborhood density, entity type, recency).
 
 ## 5. Validation plan
@@ -88,3 +92,13 @@ Merlin Quantum is the quantum division of Merlin Digital (50+ technology FTE): S
 ### Appendix B — Why the response oracle is the admissible formulation
 
 Kernel and feature-map classifiers, training-free samplers, Boltzmann machines and alert-policy optimisation are static or shallow tasks: their outputs are ground-state or sampling properties that classical methods reproduce, which is what our four control arms established across nineteen formulations. The response oracle is a real-time, multi-node, deep quantity on a coupled arrangement whose sign structure cannot be removed by any local gauge; that is the class in which classical simulation is known to lose controlled convergence at 50–100 qubits, and the class of our own 128-qubit collective-spectrum measurements. The PoC tests whether that quantity carries fraud signal; it does not assume it.
+
+### Appendix C — Claim ledger (measured · planned · comparator · quantum attribution · cost · acceptance)
+
+| claim | status | classical comparator | quantum attribution | total cost charged | acceptance threshold |
+|---|---|---|---|---|---|
+| Temporal LightGBM baseline AUC 0.912 / AUPRC 0.553; gray zone frozen | measured | IEEE-CIS winner 0.946 (different protocol) | none | CPU | — |
+| 19 formulations with four control arms: no lift | measured | random / shuffled feature arms | none | 2 IBM jobs, 40+ Dirac jobs | reported as null |
+| Entity-graph retarded-response feature | planned (Phase-2, single test) | relational aggregates, diffusion/GNN, shuffled response, classical simulation of the same response | hardware (IonQ via Braket) + exact ≤ 24q | ~4,000 circuits × 1,000 shots | gray-zone AUPRC lift, 95% CI > 0, temporal folds |
+| Exact-simulated feature test on small neighbourhoods | in progress (classical half first) | same arms | none | CPU days | same bar; hardware follows a positive result |
+
