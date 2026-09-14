@@ -103,5 +103,4 @@ Kernel and feature-map classifiers, training-free samplers, Boltzmann machines a
 | 19 formulations with four control arms: no lift | measured | random / shuffled feature arms | none | 2 IBM jobs, 40+ Dirac jobs | reported as null |
 | Graph-shape-only response feature | **withdrawn on its floor** (R² 0.79–0.998); label test null (0.194 vs 0.198) | relational, shuffled, random | none | 2.2 h CPU | as the floor predicted |
 | Field-carrying response feature | **built; floor passed**; label test at 14q: +0.001 AUPRC vs raw-input control, CI [−0.005, +0.007] — null | raw inputs, relational, shuffled, random | exact oracle; IonQ in PoC | 2.9 h CPU | same paired lift at 40–60q, CI > 0 |
-| Cheap-scalar floor on the response feature | measured — the feature is a smooth function of two integers | quadratic in (n, Σw, max w, mean w) | none | minutes | R² ≥ 0.9 ⇒ withdraw; observed 0.79–0.998 |
 
