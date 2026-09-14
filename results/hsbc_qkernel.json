@@ -1,0 +1,25 @@
+{
+ "card": "HSBC kernel race \u2014 quantum arm (GPU box)",
+ "map": "s21_g2qf_aquila locked pulse; adaptations + validation lineage in module docstring",
+ "n_train": 15895,
+ "n_test": 8000,
+ "anomaly_dim": 20,
+ "sim_dim": 6743,
+ "evolution_compute_twice_dev": 0.0,
+ "result": {
+  "cfg": {
+   "gamma": 0.1,
+   "C": 4.0
+  },
+  "inner_val_auprc": 0.21614280241140768,
+  "test_auprc": 0.1813787584490138,
+  "test_auc": 0.528154517579346,
+  "test_best_f1": 0.28657100021417864
+ },
+ "race_compute_twice": "CLEAN",
+ "classical_bar_locked": {
+  "poly4_auprc": 0.2041
+ },
+ "verdict": "NULL (classical poly4 holds the band)",
+ "wall_s": 11087.0
+}

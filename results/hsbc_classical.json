@@ -1,0 +1,66 @@
+{
+ "card": "HSBC kernel race \u2014 classical control arms (GPU box)",
+ "data": "hsbc_residual.npz (their cut, untouched)",
+ "n_train": 15895,
+ "n_test": 8000,
+ "fraud_rate_test": 0.16725,
+ "protocol": "inner 80/20 stratified split of train for tuning (seed 17); winner refit on full train; single held-out grading; AUPRC primary",
+ "results": {
+  "rbf": {
+   "cfg": {
+    "kernel": "rbf",
+    "gamma": 0.05,
+    "C": 4.0
+   },
+   "inner_val_auprc": 0.25681655896645245,
+   "test_auprc": 0.19131780526165,
+   "test_auc": 0.5244490089250817,
+   "test_best_f1": 0.28657100021417864,
+   "n_sv": 11691
+  },
+  "poly2": {
+   "cfg": {
+    "kernel": "poly",
+    "degree": 2.0,
+    "gamma": 0.3,
+    "coef0": 1.0,
+    "C": 16.0
+   },
+   "inner_val_auprc": 0.2799106275823586,
+   "test_auprc": 0.19268408904585257,
+   "test_auc": 0.5288487254979831,
+   "test_best_f1": 0.2868167202572347,
+   "n_sv": 11684
+  },
+  "poly3": {
+   "cfg": {
+    "kernel": "poly",
+    "degree": 3.0,
+    "gamma": 0.3,
+    "coef0": 1.0,
+    "C": 1.0
+   },
+   "inner_val_auprc": 0.2870092511381793,
+   "test_auprc": 0.19242925033466987,
+   "test_auc": 0.5287832087842655,
+   "test_best_f1": 0.2868782161234991,
+   "n_sv": 11676
+  },
+  "poly4": {
+   "cfg": {
+    "kernel": "poly",
+    "degree": 4.0,
+    "gamma": 0.05,
+    "coef0": 1.0,
+    "C": 16.0
+   },
+   "inner_val_auprc": 0.32935971155468746,
+   "test_auprc": 0.2041331940877156,
+   "test_auc": 0.529882184345185,
+   "test_best_f1": 0.28666309587573646,
+   "n_sv": 11679
+  }
+ },
+ "compute_twice": "CLEAN",
+ "wall_s": 211.3
+}
