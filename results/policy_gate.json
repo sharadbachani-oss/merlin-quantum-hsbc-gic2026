@@ -1,0 +1,67 @@
+{
+ "card": "alert-policy optimization gate",
+ "n": 300000,
+ "n_fraud": 2255,
+ "budget": 3000,
+ "greedy": {
+  "caught": 727,
+  "alerts": 2043
+ },
+ "exact": {
+  "caught": 727,
+  "alerts": 2043,
+  "x": [
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "equal_catch_alerts": 2043,
+ "alert_reduction": 1.0,
+ "poly": {
+  "n_terms": 9472,
+  "max_degree": 5,
+  "by_degree": {
+   "1": 18,
+   "2": 153,
+   "3": 792,
+   "4": 2621,
+   "5": 5888
+  }
+ },
+ "detector_names": [
+  "amt>=p90.0",
+  "amt>=p95.0",
+  "amt>=p98.0",
+  "amt>=p99.5",
+  "amt_z>=p90.0",
+  "amt_z>=p95.0",
+  "amt_z>=p98.0",
+  "amt_z>=p99.5",
+  "dt_hr>=p90.0",
+  "dt_hr>=p95.0",
+  "dt_hr>=p98.0",
+  "dt_hr>=p99.5",
+  "dist>=p90.0",
+  "dist>=p95.0",
+  "dist>=p98.0",
+  "dist>=p99.5",
+  "hour_risk>=p90.0",
+  "hour_risk>=p95.0"
+ ]
+}
