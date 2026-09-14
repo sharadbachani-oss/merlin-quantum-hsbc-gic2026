@@ -1,0 +1,70 @@
+{
+ "card": "typology spectrum label test on Elliptic, temporal split, illicit positive",
+ "split": "SMOKE-ONLY fallback split at step 6 (not the standard split)",
+ "standard_split": false,
+ "n_train": 135,
+ "n_test": 165,
+ "illicit_rate_test": 0.7636363636363637,
+ "folds": 3,
+ "arms": {
+  "baseline": {
+   "auprc_mean": 0.7923076823219374,
+   "auprc_sd": 0.22018588387140042,
+   "auc_mean": 0.7608007928932191,
+   "folds": [
+    0.8909472727515713,
+    0.48720397716701036,
+    0.9987717970472303
+   ]
+  },
+  "+graph_scalars": {
+   "auprc_mean": 0.8140625626239538,
+   "auprc_sd": 0.21087996488580601,
+   "auc_mean": 0.7773840512527932,
+   "folds": [
+    0.9244822372355972,
+    0.5189336535890335,
+    0.9987717970472303
+   ]
+  },
+  "+spectral": {
+   "auprc_mean": 0.8155111867956927,
+   "auprc_sd": 0.2154321880849823,
+   "auc_mean": 0.7739710308709026,
+   "folds": [
+    0.9341127837930906,
+    0.5131737914913379,
+    0.9992469851026494
+   ]
+  },
+  "+shuffled": {
+   "auprc_mean": 0.8132261045712855,
+   "auprc_sd": 0.20460548434381368,
+   "auc_mean": 0.7786053463604811,
+   "folds": [
+    0.912145674871026,
+    0.5282747159742098,
+    0.9992579228686209
+   ]
+  },
+  "+random": {
+   "auprc_mean": 0.7982862554533104,
+   "auprc_sd": 0.21227901303251814,
+   "auc_mean": 0.7771966168548324,
+   "folds": [
+    0.8915576437505485,
+    0.5045293255621528,
+    0.9987717970472303
+   ]
+  }
+ },
+ "paired_lift_spectral_vs_graph_scalars": {
+  "mean": 0.0014486241717389658,
+  "ci95": [
+   -0.007311417659755643,
+   0.010208666003233575
+  ]
+ },
+ "rule": "PASS iff mean lift >= 0.02 AUPRC and CI95 lower bound > 0",
+ "verdict": "FAIL"
+}

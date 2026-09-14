@@ -1,0 +1,22 @@
+{
+ "card": "cheap-scalar floor on the typology spectrum (Elliptic)",
+ "n": 300,
+ "r2_gbm_cv5": {
+  "E0": 0.849,
+  "gap": 0.9375,
+  "gap_shift": 0.9391,
+  "echo_contrast": 0.7776,
+  "peak_omega": 0.4484,
+  "band1": -0.0803,
+  "band2": -0.0973,
+  "band3": 0.6415,
+  "band4": 0.6953,
+  "S_t2": 0.3812,
+  "S_t8": 0.5341,
+  "echo_mean": 0.8511,
+  "echo_late": 0.8493
+ },
+ "features_below_0p8": 8,
+ "rule": "GO iff >= 3 spectral features with CV R2 < 0.8",
+ "verdict": "GO"
+}

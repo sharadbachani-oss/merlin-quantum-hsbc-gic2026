@@ -1,0 +1,5 @@
+WARNING: features file is PARTIAL — time steps 1..9 of 49 (51138 rows of 203,769). The standard temporal split (train <= 34, test >= 35) is not available.
+elliptic loaded (51138, 166) in 3s | labelled 11445 | selected 150 (illicit 73) | nmax 10 | shard 0/2
+  1/150  (9s)
+features done in 227s | usable 150/150 | n: median 10 max 10
+-> C:\quantum ai 2026\HSBC_SUBMISSION_PACKAGE\typology_features_elliptic_smoke_shard0of2.npz
